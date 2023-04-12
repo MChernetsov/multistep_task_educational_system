@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:multistep_task_educational_system/domain/auth/entities/user.dart';
 import 'package:multistep_task_educational_system/domain/auth/i_auth_repository.dart';
+import 'package:multistep_task_educational_system/domain/core/enums.dart';
 import 'package:multistep_task_educational_system/domain/core/failures.dart';
 import 'package:multistep_task_educational_system/infrastructure/services/local/shared_preferences_service.dart';
 
@@ -24,7 +25,7 @@ class MockAuthRepository implements IAuthRepository {
         return right(
           const User(
             id: '1',
-            name: 'Ivanov I.I.',
+            name: 'Иванов И. И',
             login: 'iivanov-is21',
             role: UserRole.student,
           ),
@@ -34,7 +35,7 @@ class MockAuthRepository implements IAuthRepository {
         return right(
           const User(
             id: '2',
-            name: 'Petrov P.P',
+            name: 'Петров П.П.',
             login: 'petrov-pp-is',
             role: UserRole.teacher,
           ),

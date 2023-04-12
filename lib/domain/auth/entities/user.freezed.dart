@@ -20,8 +20,6 @@ mixin _$User {
   String get name => throw _privateConstructorUsedError;
   String get login => throw _privateConstructorUsedError;
   UserRole get role => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -32,13 +30,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call(
-      {String id,
-      String name,
-      String login,
-      UserRole role,
-      String? email,
-      String? phone});
+  $Res call({String id, String name, String login, UserRole role});
 }
 
 /// @nodoc
@@ -58,8 +50,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? name = null,
     Object? login = null,
     Object? role = null,
-    Object? email = freezed,
-    Object? phone = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -78,14 +68,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as UserRole,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -96,13 +78,7 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String name,
-      String login,
-      UserRole role,
-      String? email,
-      String? phone});
+  $Res call({String id, String name, String login, UserRole role});
 }
 
 /// @nodoc
@@ -118,8 +94,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? name = null,
     Object? login = null,
     Object? role = null,
-    Object? email = freezed,
-    Object? phone = freezed,
   }) {
     return _then(_$_User(
       id: null == id
@@ -138,14 +112,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as UserRole,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -157,9 +123,7 @@ class _$_User implements _User {
       {required this.id,
       required this.name,
       required this.login,
-      required this.role,
-      this.email,
-      this.phone});
+      required this.role});
 
   @override
   final String id;
@@ -169,14 +133,10 @@ class _$_User implements _User {
   final String login;
   @override
   final UserRole role;
-  @override
-  final String? email;
-  @override
-  final String? phone;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, login: $login, role: $role, email: $email, phone: $phone)';
+    return 'User(id: $id, name: $name, login: $login, role: $role)';
   }
 
   @override
@@ -187,14 +147,11 @@ class _$_User implements _User {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.login, login) || other.login == login) &&
-            (identical(other.role, role) || other.role == role) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.phone, phone) || other.phone == phone));
+            (identical(other.role, role) || other.role == role));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, login, role, email, phone);
+  int get hashCode => Object.hash(runtimeType, id, name, login, role);
 
   @JsonKey(ignore: true)
   @override
@@ -208,9 +165,7 @@ abstract class _User implements User {
       {required final String id,
       required final String name,
       required final String login,
-      required final UserRole role,
-      final String? email,
-      final String? phone}) = _$_User;
+      required final UserRole role}) = _$_User;
 
   @override
   String get id;
@@ -220,10 +175,6 @@ abstract class _User implements User {
   String get login;
   @override
   UserRole get role;
-  @override
-  String? get email;
-  @override
-  String? get phone;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

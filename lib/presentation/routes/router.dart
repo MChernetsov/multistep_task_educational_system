@@ -1,3 +1,4 @@
+import 'package:multistep_task_educational_system/presentation/pages/course_page/course_page.dart';
 import 'package:multistep_task_educational_system/presentation/pages/courses_overview_page/courses_overview_page.dart';
 import 'package:multistep_task_educational_system/presentation/pages/created_courses_page/created_courses_page.dart';
 import 'package:multistep_task_educational_system/presentation/pages/groups_page/groups_page.dart';
@@ -35,6 +36,9 @@ import 'package:auto_route/auto_route.dart';
           page: GroupsPage,
         ),
       ],
+    ),
+    MaterialRoute(
+      page: CoursePage,
     ),
   ],
 )

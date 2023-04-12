@@ -1,28 +1,31 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:multistep_task_educational_system/domain/auth/entities/user.dart';
+import 'package:multistep_task_educational_system/domain/core/enums.dart';
 import 'package:multistep_task_educational_system/presentation/routes/router.gr.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({
+  const HomePage({
     Key? key,
-    required this.role,
+    required this.user,
   }) : super(key: key);
 
-  final UserRole role;
+  final User user;
 
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
       routes: [
-        ProfileRoute(),
-        if (role == UserRole.student) ...[
-          CoursesOverviewRoute(),
-          ProgressRoute(),
+        ProfileRoute(
+          userId: user.id,
+        ),
+        if (user.role == UserRole.student) ...[
+          CoursesOverviewRoute(userId: user.id),
+          const ProgressRoute(),
         ],
-        if (role == UserRole.teacher) ...[
-          CreatedCoursesRoute(),
-          GroupsRoute(),
+        if (user.role == UserRole.teacher) ...[
+          const CreatedCoursesRoute(),
+          const GroupsRoute(),
         ],
       ],
       homeIndex: 1,
@@ -45,7 +48,7 @@ class HomePage extends StatelessWidget {
                       icon: Icon(Icons.person),
                       label: Text("Личный\nкабинет"),
                     ),
-                    if (role == UserRole.student) ...[
+                    if (user.role == UserRole.student) ...[
                       const NavigationRailDestination(
                         icon: Icon(Icons.task),
                         label: Text("Курсы"),
@@ -55,7 +58,7 @@ class HomePage extends StatelessWidget {
                         label: Text("Прогресс"),
                       ),
                     ],
-                    if (role == UserRole.teacher) ...[
+                    if (user.role == UserRole.teacher) ...[
                       const NavigationRailDestination(
                         icon: Icon(Icons.task_outlined),
                         label: Text("Мои курсы"),

@@ -24,9 +24,9 @@ class LoginContent extends StatelessWidget {
                 user: state.user,
               ),
             );
-            router.push(
+            router.replace(
               HomeRoute(
-                role: state.user.role,
+                user: state.user,
               ),
             );
           },

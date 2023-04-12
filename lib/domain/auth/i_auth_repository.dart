@@ -11,4 +11,5 @@ abstract class IAuthRepository {
   });
 
   Future<Either<Failure, Unit>> logOut();
+
 }

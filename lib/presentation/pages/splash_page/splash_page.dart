@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
           initial: (e) {},
           authenticated: (e) => context.router.replace(
             HomeRoute(
-              role: e.user.role,
+              user: e.user,
             ),
           ),
           unauthenticated: (e) => context.router.replace(const LoginRoute()),
