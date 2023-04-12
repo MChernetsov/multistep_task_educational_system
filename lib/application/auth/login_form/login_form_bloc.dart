@@ -33,41 +33,39 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
         ),
         passwordChanged: (e) async => state.maybeMap(
           orElse: () {},
-          form: (state) async => emit(
+          form: (state) => emit(
             state.copyWith(
               failed: false,
               password: e.password,
             ),
           ),
         ),
-        logIn: (e) async {
-          state.maybeMap(
-            orElse: () {},
-            form: (state) async {
-              emit(
+        logIn: (e) async => await state.maybeMap(
+          orElse: () {},
+          form: (state) async {
+            emit(
+              state.copyWith(
+                loading: true,
+              ),
+            );
+            final result = await _repository.logIn(
+              login: state.login,
+              password: state.password,
+            );
+            result.fold(
+              (l) => emit(
                 state.copyWith(
-                  loading: true,
+                  failed: true,
                 ),
-              );
-              final result = await _repository.logIn(
-                login: state.login,
-                password: state.password,
-              );
-              result.fold(
-                (l) => emit(
-                  state.copyWith(
-                    failed: true,
-                  ),
+              ),
+              (r) => emit(
+                LoginFormState.loggedIn(
+                  user: r,
                 ),
-                (r) => emit(
-                  LoginFormState.loggedIn(
-                    user: r,
-                  ),
-                ),
-              );
-            },
-          );
-        },
+              ),
+            );
+          },
+        ),
       );
     });
   }

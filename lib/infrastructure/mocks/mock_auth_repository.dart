@@ -50,6 +50,7 @@ class MockAuthRepository implements IAuthRepository {
     required String password,
   }) async {
     if (login == 'iivanov-is21' && password == 'qazwsx21') {
+      await _preferences.saveNewToken('12345');
       return right(
         const User(
           id: '1',
@@ -60,6 +61,7 @@ class MockAuthRepository implements IAuthRepository {
       );
     }
     if (login == 'petrov-pp-is' && password == 'qwerty123') {
+      await _preferences.saveNewToken('67890');
       return right(
         const User(
           id: '2',
