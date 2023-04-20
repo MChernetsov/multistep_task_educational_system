@@ -7,9 +7,11 @@ class CourseListItem extends StatelessWidget {
   const CourseListItem({
     Key? key,
     required this.courseInfo,
+    required this.userId,
   }) : super(key: key);
 
   final CourseInfo courseInfo;
+  final String userId;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class CourseListItem extends StatelessWidget {
         onTap: () => context.router.push(
           CourseRoute(
             courseId: courseInfo.id,
+            userId: userId,
           ),
         ),
         child: Column(

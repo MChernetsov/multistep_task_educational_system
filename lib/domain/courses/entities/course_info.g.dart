@@ -8,7 +8,7 @@ part of 'course_info.dart';
 
 _$_CourseInfo _$$_CourseInfoFromJson(Map<String, dynamic> json) =>
     _$_CourseInfo(
-      id: json['id'] as int,
+      id: json['id'] as String,
       title: json['title'] as String,
       progress: json['progress'] as int,
       imageUrl: json['imageUrl'] as String,

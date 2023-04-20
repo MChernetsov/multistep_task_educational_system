@@ -17,7 +17,9 @@ class CoursesOverviewPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<CoursesSelectorBloc>()
         ..add(CoursesSelectorEvent.started(userId: userId)),
-      child: const CoursesOverViewContent(),
+      child: CoursesOverViewContent(
+        userId: userId,
+      ),
     );
   }
 }

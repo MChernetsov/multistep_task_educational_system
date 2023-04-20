@@ -7,7 +7,7 @@ part 'course_info.g.dart';
 @freezed
 class CourseInfo with _$CourseInfo {
   const factory CourseInfo({
-    required int id,
+    required String id,
     required String title,
     required int progress,
     required String imageUrl,

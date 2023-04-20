@@ -20,7 +20,7 @@ CourseInfo _$CourseInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CourseInfo {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   int get progress => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $CourseInfoCopyWith<$Res> {
           CourseInfo value, $Res Function(CourseInfo) then) =
       _$CourseInfoCopyWithImpl<$Res, CourseInfo>;
   @useResult
-  $Res call({int id, String title, int progress, String imageUrl});
+  $Res call({String id, String title, int progress, String imageUrl});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$CourseInfoCopyWithImpl<$Res, $Val extends CourseInfo>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,7 @@ abstract class _$$_CourseInfoCopyWith<$Res>
       __$$_CourseInfoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title, int progress, String imageUrl});
+  $Res call({String id, String title, int progress, String imageUrl});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$_CourseInfoCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -140,7 +140,7 @@ class _$_CourseInfo with DiagnosticableTreeMixin implements _CourseInfo {
       _$$_CourseInfoFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String title;
   @override
@@ -197,7 +197,7 @@ class _$_CourseInfo with DiagnosticableTreeMixin implements _CourseInfo {
 
 abstract class _CourseInfo implements CourseInfo {
   const factory _CourseInfo(
-      {required final int id,
+      {required final String id,
       required final String title,
       required final int progress,
       required final String imageUrl}) = _$_CourseInfo;
@@ -206,7 +206,7 @@ abstract class _CourseInfo implements CourseInfo {
       _$_CourseInfo.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get title;
   @override

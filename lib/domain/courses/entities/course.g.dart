@@ -14,6 +14,7 @@ _$_Course _$$_CourseFromJson(Map<String, dynamic> json) => _$_Course(
       learningMaterials: (json['learningMaterials'] as List<dynamic>)
           .map((e) => LearningMaterial.fromJson(e as Map<String, dynamic>))
           .toList(),
+      testingEnabled: json['testingEnabled'] as bool,
     );
 
 Map<String, dynamic> _$$_CourseToJson(_$_Course instance) => <String, dynamic>{
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_CourseToJson(_$_Course instance) => <String, dynamic>{
       'progress': instance.progress,
       'imageUrl': instance.imageUrl,
       'learningMaterials': instance.learningMaterials,
+      'testingEnabled': instance.testingEnabled,
     };

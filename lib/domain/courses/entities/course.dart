@@ -13,6 +13,7 @@ class Course with _$Course {
     required int progress,
     required String imageUrl,
     required List<LearningMaterial> learningMaterials,
+    required bool testingEnabled,
   }) = _Course;
 
   factory Course.fromJson(Map<String, dynamic> json) => _$CourseFromJson(json);

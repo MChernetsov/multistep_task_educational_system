@@ -4,7 +4,12 @@ import 'package:multistep_task_educational_system/application/courses/courses_se
 import 'package:multistep_task_educational_system/presentation/pages/courses_overview_page/courses_list_item.dart';
 
 class CoursesOverViewContent extends StatelessWidget {
-  const CoursesOverViewContent({Key? key}) : super(key: key);
+  const CoursesOverViewContent({
+    Key? key,
+    required this.userId,
+  }) : super(key: key);
+
+  final String userId;
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +97,7 @@ class CoursesOverViewContent extends StatelessWidget {
                     .map(
                       (e) => CourseListItem(
                         courseInfo: e,
+                        userId: userId,
                       ),
                     )
                     .toList(),

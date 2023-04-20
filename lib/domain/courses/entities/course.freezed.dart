@@ -26,6 +26,7 @@ mixin _$Course {
   String get imageUrl => throw _privateConstructorUsedError;
   List<LearningMaterial> get learningMaterials =>
       throw _privateConstructorUsedError;
+  bool get testingEnabled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +43,8 @@ abstract class $CourseCopyWith<$Res> {
       String title,
       int progress,
       String imageUrl,
-      List<LearningMaterial> learningMaterials});
+      List<LearningMaterial> learningMaterials,
+      bool testingEnabled});
 }
 
 /// @nodoc
@@ -63,6 +65,7 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
     Object? progress = null,
     Object? imageUrl = null,
     Object? learningMaterials = null,
+    Object? testingEnabled = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -85,6 +88,10 @@ class _$CourseCopyWithImpl<$Res, $Val extends Course>
           ? _value.learningMaterials
           : learningMaterials // ignore: cast_nullable_to_non_nullable
               as List<LearningMaterial>,
+      testingEnabled: null == testingEnabled
+          ? _value.testingEnabled
+          : testingEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -100,7 +107,8 @@ abstract class _$$_CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       String title,
       int progress,
       String imageUrl,
-      List<LearningMaterial> learningMaterials});
+      List<LearningMaterial> learningMaterials,
+      bool testingEnabled});
 }
 
 /// @nodoc
@@ -118,6 +126,7 @@ class __$$_CourseCopyWithImpl<$Res>
     Object? progress = null,
     Object? imageUrl = null,
     Object? learningMaterials = null,
+    Object? testingEnabled = null,
   }) {
     return _then(_$_Course(
       id: null == id
@@ -140,6 +149,10 @@ class __$$_CourseCopyWithImpl<$Res>
           ? _value._learningMaterials
           : learningMaterials // ignore: cast_nullable_to_non_nullable
               as List<LearningMaterial>,
+      testingEnabled: null == testingEnabled
+          ? _value.testingEnabled
+          : testingEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -152,7 +165,8 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
       required this.title,
       required this.progress,
       required this.imageUrl,
-      required final List<LearningMaterial> learningMaterials})
+      required final List<LearningMaterial> learningMaterials,
+      required this.testingEnabled})
       : _learningMaterials = learningMaterials;
 
   factory _$_Course.fromJson(Map<String, dynamic> json) =>
@@ -176,8 +190,11 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
   }
 
   @override
+  final bool testingEnabled;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Course(id: $id, title: $title, progress: $progress, imageUrl: $imageUrl, learningMaterials: $learningMaterials)';
+    return 'Course(id: $id, title: $title, progress: $progress, imageUrl: $imageUrl, learningMaterials: $learningMaterials, testingEnabled: $testingEnabled)';
   }
 
   @override
@@ -189,7 +206,8 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('progress', progress))
       ..add(DiagnosticsProperty('imageUrl', imageUrl))
-      ..add(DiagnosticsProperty('learningMaterials', learningMaterials));
+      ..add(DiagnosticsProperty('learningMaterials', learningMaterials))
+      ..add(DiagnosticsProperty('testingEnabled', testingEnabled));
   }
 
   @override
@@ -204,13 +222,15 @@ class _$_Course with DiagnosticableTreeMixin implements _Course {
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             const DeepCollectionEquality()
-                .equals(other._learningMaterials, _learningMaterials));
+                .equals(other._learningMaterials, _learningMaterials) &&
+            (identical(other.testingEnabled, testingEnabled) ||
+                other.testingEnabled == testingEnabled));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, title, progress, imageUrl,
-      const DeepCollectionEquality().hash(_learningMaterials));
+      const DeepCollectionEquality().hash(_learningMaterials), testingEnabled);
 
   @JsonKey(ignore: true)
   @override
@@ -232,7 +252,8 @@ abstract class _Course implements Course {
       required final String title,
       required final int progress,
       required final String imageUrl,
-      required final List<LearningMaterial> learningMaterials}) = _$_Course;
+      required final List<LearningMaterial> learningMaterials,
+      required final bool testingEnabled}) = _$_Course;
 
   factory _Course.fromJson(Map<String, dynamic> json) = _$_Course.fromJson;
 
@@ -246,6 +267,8 @@ abstract class _Course implements Course {
   String get imageUrl;
   @override
   List<LearningMaterial> get learningMaterials;
+  @override
+  bool get testingEnabled;
   @override
   @JsonKey(ignore: true)
   _$$_CourseCopyWith<_$_Course> get copyWith =>

@@ -22,7 +22,7 @@ class MockCoursesRepository implements IProfileRepository {
           role: UserRole.student,
           email: 'ivanov@mail.com',
           phone: '89135555555',
-          group: 'Информационные системы 21 год поступления',
+          group: 'IS21',
         ),
       );
     }
@@ -49,8 +49,17 @@ class MockCoursesRepository implements IProfileRepository {
     required String? password,
     required String? phone,
     required String? email,
-  }) {
-    // TODO: implement editProfile
-    throw UnimplementedError();
+  }) async {
+    return right(
+      Profile(
+        id: '1',
+        name: 'Иванов И. И',
+        login: 'iivanov-is21',
+        role: UserRole.student,
+        email: email,
+        phone: phone,
+        group: 'IS21',
+      ),
+    );
   }
 }

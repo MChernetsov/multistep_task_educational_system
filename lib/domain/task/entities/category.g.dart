@@ -1,23 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'learning_material.dart';
+part of 'category.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LearningMaterial _$$_LearningMaterialFromJson(Map<String, dynamic> json) =>
-    _$_LearningMaterial(
+_$_Category _$$_CategoryFromJson(Map<String, dynamic> json) => _$_Category(
       id: json['id'] as String,
       name: json['name'] as String,
-      url: json['url'] as String,
-      visited: json['visited'] as bool,
     );
 
-Map<String, dynamic> _$$_LearningMaterialToJson(_$_LearningMaterial instance) =>
+Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'url': instance.url,
-      'visited': instance.visited,
     };
